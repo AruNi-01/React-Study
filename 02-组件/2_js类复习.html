@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义类
+        class Person {
+            // 构造器
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            // 一般方法（放在原型对象上，供实例使用）
+            sayHello() {
+                // 方法中的this主要取决于是谁调用了他
+                console.log("大家好，我是" + this.name + "，今年" + this.age + "岁了");
+            }
+        }
+
+        // 创建实例
+        const p1 = new Person("Tom", 18);
+        const p2 = new Person("Jack", 20);
+
+        console.log(p1);
+        console.log(p2);
+        p1.sayHello();
+        p2.sayHello();
+
+
+        // 继承
+        class Student extends Person {
+            constructor(name, age, score) {
+                // 调用父类的构造，必须放在子类构造的第一行
+                super(name, age);
+                this.score = score;
+            }
+            // 重写父类的方法
+            sayHello() {
+                console.log("大家好，我是" + this.name + "，今年" + this.age + "岁了，我的成绩是" + this.score);
+            }
+        }
+
+        const s1 = new Student("Tom", 18, 100);
+        const s2 = new Student("Jack", 20, 90);
+
+        console.log(s1);
+        console.log(s2);
+    </script>
+</body>
+</html>

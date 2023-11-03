@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- 准备好容器 -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js"></script>
+
+<script type="text/babel">
+        class Weather extends React.Component{
+            // 构造器只会调用一次（React初始化该组件的时候调用的）
+            constructor(props){
+                super(props);
+                this.state = {isHot:true, win:"微风"};
+                // 找到原型的dem，bind会根据dem函数创建一个dem的函数，并且将实例对象的this赋值过去，后面调用的时候先找到的是这个函数，而不是原型上的函数
+                // this.dem = this.dem.bind(this);
+            }
+            //render会调用1+n次【1就是初始化的时候调用的，n就是每一次修改state的时候调用的】
+            render(){ //这个This也是实例对象
+                //如果加dem()，就是将函数的回调值（dem 方法的返回值默认是 undefined）放入这个地方
+                //this.dem这里面加入this，并不是调用，只不过是找到了dem这个函数，在调用的时候相当于直接调用，并不是实例对象的调用
+                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot ? "炎热" : "凉爽"}</h1>    
+            }
+
+            //通过state的实例调用dem的时候，this就是实例对象
+            //类中的方法默认开启了严格模式，所以this是undefined，否则是window
+            dem = () =>{
+                const stateIsHot =  this.state.isHot;
+                //状态中的属性不能直接进行更改，需要借助API。this.state.isHot = !stateIsHot; 会导致react不重新渲染（页面不会更新）
+                //必须使用setState对其进行修改，并且这是一个合并（state 对象中会更新，不会整体替换）, react 才会重新渲染
+                this.setState({isHot: !stateIsHot});
+            }
+        }
+        ReactDOM.render(<Weather />,document.getElementById("test"));
+        
+        /**
+         * 为什么要用箭头函数？
+         * 1. 在 render 中，this.dem 返回的是一个函数，所以当 onClick 触发时，执行的函数不是用实例对象调用的，
+         *    而是直接从堆中拿出来的函数，此时调用就是直接调用，会导致 this 丢失。
+         * 2. 箭头函数没有 this，如果在其中调用 this，则会往外寻找（即 Weather 实例对象）， 而且是函数定义时就确定了 this，后面都不会改变
+         * 
+         * 不用箭头函数也可以解决问题，但是需要在构造器中绑定 this，这样就不会丢失 this：
+         * constructor(props){
+         *     super(props);
+         *     this.state = {isHot:true};
+         *     // 找到原型的dem，bind会根据dem函数创建一个dem的函数，并且将实例对象的this赋值过去，后面调用的时候先找到的是这个函数，而不是原型上的函数
+         *     this.dem = this.dem.bind(this);
+         * }
+         * 为了避免方法过多，导致代码冗余，所以一般使用箭头函数
+        */
+</script>
+
+</html>

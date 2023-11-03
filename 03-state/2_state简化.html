@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- 准备好容器 -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js"></script>
+
+<script type="text/babel">
+        class Weather extends React.Component{
+            // class 中可以直接写赋值语句，相当于实例变量（每个实例共有）
+            state = {isHot:true, win:"微风"};
+
+            render(){
+                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot ? "炎热" : "凉爽"}</h1>    
+            }
+
+            dem = () => {
+                const stateIsHot = this.state.isHot;
+                this.setState({isHot: !stateIsHot});
+            }
+        }
+        ReactDOM.render(<Weather />,document.getElementById("test"));
+</script>
+
+</html>
