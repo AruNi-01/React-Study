@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "div">
+
+    </div>
+
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js"></script>
+<script src="../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+    //创建组件
+    function Person(props) {
+      const { name, age, sex } = props
+      return (
+        <ul>
+          <li>姓名：{name}</li>
+          <li>性别：{sex}</li>
+          <li>年龄：{age}</li>
+        </ul>
+      )
+    }
+
+    //函数式组件的props限制，就只能写在函数外面了
+    Person.propTypes = {
+      name: PropTypes.string.isRequired, //限制name必传，且为字符串
+      sex: PropTypes.string, //限制sex为字符串
+      age: PropTypes.number, //限制age为数值
+    }
+    //指定默认标签属性值
+    Person.defaultProps = {
+      sex: '男', //sex默认值为男
+      age: 18, //age默认值为18
+    }
+
+    ReactDOM.render(<Person name="jerry" />, document.getElementById('test1'))
+</script>
+</html>
