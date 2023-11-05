@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+</body>
+
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js"></script>
+<script src="../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+    /*
+    1. key 是虚拟 DOM 对象的标识，当 state 发生变化时，react 会根据【新数据】生成【新的虚拟 DOM】，
+    随后 react 进行【新虚拟 DOM】与【旧虚拟 DOM】的 diff 比较，规则如下：
+        a. 若旧虚拟 DOM 对象中找到了与新虚拟 DOM 对象相同的 key：
+            (1). 若虚拟 DOM 中内容没变，直接使用之前的真实 DOM
+            (2). 若虚拟 DOM 中内容变了，则生成新的真实 DOM，随后替换掉页面中之前的真实 DOM
+        b. 若旧虚拟 DOM 对象中未找到与新虚拟 DOM 对象相同的 key：
+            · 根据数据创建新的真实 DOM，随后渲染到到页面
+    
+    2. 用 index 作为 key 的问题：
+        a. 最好不要使用 index 作为 key，这样可能会在 persons 改变时（比如逆序 添加/删除），导致 index 发生变化，从而导致 key 发生变化，
+           而 diffing 算法就是使用 key 来对比新旧虚拟 DOM 的，如果 key 发生变化，就会导致大量虚拟 DOM 重新渲染，影响性能。
+           所以比较推荐使用各条数据的唯一标识作为 key，比如这里的 id。
+        b. 更严重的问题：当下面的 li 标签中加入了 input 框时，当在框中输入内容后，此时更新 state（逆序添加），由于 li 节点的 index
+           发生了变化，导致新旧虚拟 DOM 不一样，所以会重新渲染，但是 diffing 算法还会一层一层的比较，发现 input 节点是一样的，因此
+           不会重新渲染 li 中 input 节点，这样就导致了 li 和 input 不对应的错误。
+        因此，当对数据进行逆序添加/删除时，最好不要使用 index 作为 key，而是使用数据的唯一标识。
+    */
+
+    class Person extends React.Component {
+        state = {
+            persons: [
+                { id: 1, name: "张三", age: 18 },
+                { id: 2, name: "李四", age: 19 }
+            ]
+        }
+
+        addObject = () => {
+            let { persons } = this.state;
+            const p = { id: (persons.length + 1), name: "王五", age: 20 };
+            this.setState({ persons: [p, ...persons] });
+        }
+
+        render() {
+            return (
+                <div>
+                    <h2>展示人员信息</h2>
+                    <button onClick={this.addObject}>点击增加对象</button>
+                    <ul>
+                        {
+                            
+                            this.state.persons.map((p, index) => {
+                                return <li key={p.id}>{p.name}---{p.age}</li>
+
+                                {/* index 作为 key 的问题演示 */}
+                                return <li key={index}>{p.name}---{p.age} <input type="text"/> </li>
+                            })
+                        }
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Person />, document.getElementById("div"));
+</script>
+
+</html>
