@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+
+</body>
+<!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+<script src="../React-js/babel.min.js"></script>
+<script src="../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class A extends React.Component {
+        constructor(props) {
+            console.log("A --- constructor")
+            super(props);
+            this.state = { num: 1 }
+        }
+
+        add = () => {
+            let { num } = this.state;
+            this.setState({ num: num + 1 });
+        }
+
+        force = () => {
+            console.log("A --- forceUpdate");
+            //强制更新，不受shouldComponentUpdate的影响
+            this.forceUpdate();
+        }
+
+        render() {
+            console.log("A --- render");
+            return (
+                <div>
+                    <h1>这个是第 {this.state.num} 个</h1>
+
+                    {/* 添加子组件 B，把 num 传递过去 */}
+                    <B name={this.state.num} />
+
+                    <button onClick={this.add}>点击加一</button>
+                    <button onClick={this.force}>强制更新</button>
+                </div>
+            )
+        }
+
+        //在render之前执行(将要挂载时)
+        componentWillMount() {
+            console.log("A --- componentWillMount");
+        }
+
+        //在render之后执行(已经挂载完成时)
+        componentDidMount() {
+            console.log("A --- componenetDidMount");
+        }
+
+        //更新操作 setState之后执行，作用为判断是否可以更新（往下执行），相当于一个阀门
+        shouldComponentUpdate() {
+            console.log("A --- shouldComponentUpdate");
+            return true;
+        }
+
+        // 组件更新之前
+        componentWillUpdate() {
+            console.log("A --- componentWillUpdate");
+        }
+        //组件更新之后(该函数还能接收到2/3个参数，分别是更新之前的props和state，后续会讲到)
+        componentDidUpdate() {
+            console.log("A --- componentDidUpdate");
+        }
+
+        //卸载组件之后
+        componentWillUnmonut() {
+            console.log("A --- componentWillUnmonut");
+        }
+    }
+
+
+    class B extends React.Component {
+        render() {
+            return (
+                <div>
+                    {/* 父组件传递过来的参数在props中 */}
+                    <h1>这个是B组件,传递过来的数据是：{this.props.name}</h1>
+                </div>
+            )
+        }
+
+        //父组件进行了更新，子组件先执行这个，有个坑需要注意：第一次接收props不执行，因为第一次传递不算更新
+        componentWillReceiveProps() {
+            console.log("B --- componentWillReceiveProps");
+        }
+    }
+
+
+    ReactDOM.render(<A />, document.getElementById("div"));
+</script>
+
+</html>

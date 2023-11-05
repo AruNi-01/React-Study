@@ -16,59 +16,57 @@
 <!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
 <script src="../React-js/react.development.js" type="text/javascript"></script>
 <script src="../React-js/react-dom.development.js" type="text/javascript"></script>
-
 <script src="../React-js/babel.min.js"></script>
-
-<!--引入对于组件标签的限制-->
 <script src="../React-js/prop-types.js"></script>
 
 <script type="text/babel">
 
     class Life extends React.Component{
         /*
-           组件从创建到死亡，会经过一些特定的阶段
+            组件从创建到死亡，会经过一些特定的阶段
             React组件中包含一系列钩子函数{生命周期回调函数}，会在特定的时刻调用
             我们在定义组件的时候，会在特定的声明周期回调函数中，做特定的工作
         */
 
         //定义透明度
-        state = {time:1};
+        state = {opacity: 1};
 
-        stop = () => {
+        death = () => {
             //卸载组件
             ReactDOM.unmountComponentAtNode(document.getElementById("div"))
-          
         }
 
-        //在组建挂载(渲染之后进行)
+        //在组件挂载(渲染)之后调用一次
         componentDidMount(){
-            //定时器
+            //定时器，每隔200ms执行一次，改变透明度
+            //这里需要用一个变量来接收一下，方便在组件卸载的时候清除定时器，否则会一直执行，导致一个错误：不能更新已经卸载组件的state
             this.Inter = setInterval(()=>{
-                let {time} = this.state;
-                time -= 0.1;
-                if(time <= 0){
-                    time = 1;
+                let {opacity} = this.state;
+                opacity -= 0.1;
+                if(opacity <= 0) {
+                    opacity = 1;
                 }
-                this.setState({time:time});
-            },200);
+                this.setState({opacity: opacity});
+            }, 200);
         }
 
-        //组件被卸载之后执行
+        //组件被卸载之后调用一次（当组件所在的DOM元素被移除时、调用unmountComponentAtNode 等，组件就会被卸载）
         componentWillUnmount(){
+            //清除定时器，防止组件卸载之后，定时器还在执行，导致一个错误：不能更新已经卸载组件的state
             clearInterval(this.Inter);
         }
 
+        // render 调用时机：1.初始化 2.更新
         render(){
             return (
                 <div>
-                    <h2 style = {{opacity:this.state.time}}>声明周期</h2>
-                    <button onClick = {this.stop}>结束</button>
+                    <h2 style = {{opacity: this.state.opacity}}>声明周期</h2>
+                    <button onClick = {this.death}>结束</button>
                 </div>
             )
         }
     }
 
     ReactDOM.render(<Life />,document.getElementById("div"));
-
 </script>
 </html>
