@@ -522,7 +522,7 @@ var LOW_PRIORITY_TIMEOUT = 10000;
 // Never times out
 var IDLE_PRIORITY = maxSigned31BitInt;
 
-// Callbacks are stored as a circular, doubly linked list.
+// Callbacks are stored as a circular, doubly linked List.
 var firstCallbackNode = null;
 
 var currentDidTimeout = false;
@@ -545,7 +545,7 @@ function ensureHostCallbackIsScheduled() {
     // Don't schedule work yet; wait until the next time we yield.
     return;
   }
-  // Schedule the host callback using the earliest expiration in the list.
+  // Schedule the host callback using the earliest expiration in the List.
   var expirationTime = firstCallbackNode.expirationTime;
   if (!isHostCallbackScheduled) {
     isHostCallbackScheduled = true;
@@ -559,11 +559,11 @@ function ensureHostCallbackIsScheduled() {
 function flushFirstCallback() {
   var flushedNode = firstCallbackNode;
 
-  // Remove the node from the list before calling the callback. That way the
-  // list is in a consistent state even if the callback throws.
+  // Remove the node from the List before calling the callback. That way the
+  // List is in a consistent state even if the callback throws.
   var next = firstCallbackNode.next;
   if (firstCallbackNode === next) {
-    // This is the last callback in the list.
+    // This is the last callback in the List.
     firstCallbackNode = null;
     next = null;
   } else {
@@ -601,12 +601,12 @@ function flushFirstCallback() {
       previous: null
     };
 
-    // Insert the new callback into the list, sorted by its expiration. This is
+    // Insert the new callback into the List, sorted by its expiration. This is
     // almost the same as the code in `scheduleCallback`, except the callback
-    // is inserted into the list *before* callbacks of equal expiration instead
+    // is inserted into the List *before* callbacks of equal expiration instead
     // of after.
     if (firstCallbackNode === null) {
-      // This is the first callback in the list.
+      // This is the first callback in the List.
       firstCallbackNode = continuationNode.next = continuationNode.previous = continuationNode;
     } else {
       var nextAfterContinuation = null;
@@ -623,10 +623,10 @@ function flushFirstCallback() {
 
       if (nextAfterContinuation === null) {
         // No equal or lower priority callback was found, which means the new
-        // callback is the lowest priority callback in the list.
+        // callback is the lowest priority callback in the List.
         nextAfterContinuation = firstCallbackNode;
       } else if (nextAfterContinuation === firstCallbackNode) {
-        // The new callback is the highest priority callback in the list.
+        // The new callback is the highest priority callback in the List.
         firstCallbackNode = continuationNode;
         ensureHostCallbackIsScheduled();
       }
@@ -827,11 +827,11 @@ function unstable_scheduleCallback(callback, deprecated_options) {
     previous: null
   };
 
-  // Insert the new callback into the list, ordered first by expiration, then
+  // Insert the new callback into the List, ordered first by expiration, then
   // by insertion. So the new callback is inserted any other callback with
   // equal expiration.
   if (firstCallbackNode === null) {
-    // This is the first callback in the list.
+    // This is the first callback in the List.
     firstCallbackNode = newNode.next = newNode.previous = newNode;
     ensureHostCallbackIsScheduled();
   } else {
@@ -848,10 +848,10 @@ function unstable_scheduleCallback(callback, deprecated_options) {
 
     if (next === null) {
       // No callback with a later expiration was found, which means the new
-      // callback has the latest expiration in the list.
+      // callback has the latest expiration in the List.
       next = firstCallbackNode;
     } else if (next === firstCallbackNode) {
-      // The new callback has the earliest expiration in the entire list.
+      // The new callback has the earliest expiration in the entire List.
       firstCallbackNode = newNode;
       ensureHostCallbackIsScheduled();
     }
@@ -888,10 +888,10 @@ function unstable_cancelCallback(callbackNode) {
   }
 
   if (next === callbackNode) {
-    // This is the only scheduled callback. Clear the list.
+    // This is the only scheduled callback. Clear the List.
     firstCallbackNode = null;
   } else {
-    // Remove the callback from its position in the list.
+    // Remove the callback from its position in the List.
     if (callbackNode === firstCallbackNode) {
       firstCallbackNode = next;
     }
@@ -2883,7 +2883,7 @@ function validateExplicitKey(element, parentType) {
 
   setCurrentlyValidatingElement(element);
   {
-    warning$1(false, 'Each child in a list should have a unique "key" prop.' + '%s%s See https://fb.me/react-warning-keys for more information.', currentComponentErrorInfo, childOwner);
+    warning$1(false, 'Each child in a List should have a unique "key" prop.' + '%s%s See https://fb.me/react-warning-keys for more information.', currentComponentErrorInfo, childOwner);
   }
   setCurrentlyValidatingElement(null);
 }

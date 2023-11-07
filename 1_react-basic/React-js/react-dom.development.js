@@ -310,7 +310,7 @@ var eventPluginOrder = null;
 var namesToPlugins = {};
 
 /**
- * Recomputes the plugin list using the injected plugins and plugin ordering.
+ * Recomputes the plugin List using the injected plugins and plugin ordering.
  *
  * @private
  */
@@ -392,7 +392,7 @@ function publishRegistrationName(registrationName, pluginModule, eventName) {
  */
 
 /**
- * Ordered list of injected plugins.
+ * Ordered List of injected plugins.
  */
 var plugins = [];
 
@@ -1164,7 +1164,7 @@ function makePrefixMap(styleProp, eventName) {
 }
 
 /**
- * A list of event names to a configurable list of vendor prefixes.
+ * A List of event names to a configurable List of vendor prefixes.
  */
 var vendorPrefixes = {
   animationend: makePrefixMap('Animation', 'AnimationEnd'),
@@ -1320,7 +1320,7 @@ var TOP_WAITING = unsafeCastStringToDOMTopLevelType('waiting');
 var TOP_WHEEL = unsafeCastStringToDOMTopLevelType('wheel');
 
 // List of events that need to be individually attached to media elements.
-// Note that events in this list will *not* be listened to at the top level
+// Note that events in this List will *not* be listened to at the top level
 // unless they're explicitly whitelisted in `ReactBrowserEventEmitter.listenTo`.
 var mediaEventTypes = [TOP_ABORT, TOP_CAN_PLAY, TOP_CAN_PLAY_THROUGH, TOP_DURATION_CHANGE, TOP_EMPTIED, TOP_ENCRYPTED, TOP_ENDED, TOP_ERROR, TOP_LOADED_DATA, TOP_LOADED_METADATA, TOP_LOAD_START, TOP_PAUSE, TOP_PLAY, TOP_PLAYING, TOP_PROGRESS, TOP_RATE_CHANGE, TOP_SEEKED, TOP_SEEKING, TOP_STALLED, TOP_SUSPEND, TOP_TIME_UPDATE, TOP_VOLUME_CHANGE, TOP_WAITING];
 
@@ -2771,7 +2771,7 @@ function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attribut
   this.type = type;
 }
 
-// When adding attributes to this list, be sure to also add them to
+// When adding attributes to this List, be sure to also add them to
 // the `possibleStandardNames` module to ensure casing and incorrect
 // name warnings.
 var properties = {};
@@ -2876,10 +2876,10 @@ var capitalize = function (token) {
   return token[1].toUpperCase();
 };
 
-// This is a list of all SVG attributes that need special casing, namespacing,
+// This is a List of all SVG attributes that need special casing, namespacing,
 // or boolean value assignment. Regular attributes that just accept strings
 // and have the same names are omitted, just like in the HTML whitelist.
-// Some of these attributes can be hard to find. This list was created by
+// Some of these attributes can be hard to find. This List was created by
 // scrapping the MDN documentation.
 ['accent-height', 'alignment-baseline', 'arabic-form', 'baseline-shift', 'cap-height', 'clip-path', 'clip-rule', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'dominant-baseline', 'enable-background', 'fill-opacity', 'fill-rule', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-name', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'horiz-adv-x', 'horiz-origin-x', 'image-rendering', 'letter-spacing', 'lighting-color', 'marker-end', 'marker-mid', 'marker-start', 'overline-position', 'overline-thickness', 'paint-order', 'panose-1', 'pointer-events', 'rendering-intent', 'shape-rendering', 'stop-color', 'stop-opacity', 'strikethrough-position', 'strikethrough-thickness', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-decoration', 'text-rendering', 'underline-position', 'underline-thickness', 'unicode-bidi', 'unicode-range', 'units-per-em', 'v-alphabetic', 'v-hanging', 'v-ideographic', 'v-mathematical', 'vector-effect', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'word-spacing', 'writing-mode', 'xmlns:xlink', 'x-height'].forEach(function (attributeName) {
   var name = attributeName.replace(CAMELIZE, capitalize);
@@ -3007,7 +3007,7 @@ function setValueForProperty(node, name, value, isCustomComponentTag) {
   if (shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag)) {
     value = null;
   }
-  // If the prop isn't in the special list, treat it as a simple attribute.
+  // If the prop isn't in the special List, treat it as a simple attribute.
   if (isCustomComponentTag || propertyInfo === null) {
     if (isAttributeNameSafe(name)) {
       var _attributeName = name;
@@ -5369,7 +5369,7 @@ function setOffsets(node, offsets) {
   var win = doc && doc.defaultView || window;
 
   // Edge fails with "Object expected" in some scenarios.
-  // (For instance: TinyMCE editor used in a list component that supports pasting to add more,
+  // (For instance: TinyMCE editor used in a List component that supports pasting to add more,
   // fails when pasting 100+ items)
   if (!win.getSelection) {
     return;
@@ -7665,7 +7665,7 @@ function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProp
       // Noop
     } else if (propKey === AUTOFOCUS) {
       // We polyfill it separately on the client during commit.
-      // We could have excluded it in the property list instead of
+      // We could have excluded it in the property List instead of
       // adding a special case here, but then it wouldn't be emitted
       // on server rendering (but we *do* want to emit it in SSR).
     } else if (registrationNameModules.hasOwnProperty(propKey)) {
@@ -8642,7 +8642,7 @@ var updatedAncestorInfo = function () {};
         return ancestorInfo.buttonTagInScope;
 
       case 'a':
-        // Spec says something about storing a list of markers, but it sounds
+        // Spec says something about storing a List of markers, but it sounds
         // equivalent to this check.
         return ancestorInfo.aTagInScope;
 
@@ -10203,7 +10203,7 @@ function createWorkInProgress(current, pendingProps, expirationTime) {
     // Reset the effect tag.
     workInProgress.effectTag = NoEffect;
 
-    // The effect list is no longer valid.
+    // The effect List is no longer valid.
     workInProgress.nextEffect = null;
     workInProgress.firstEffect = null;
     workInProgress.lastEffect = null;
@@ -10420,7 +10420,7 @@ function assignFiberPropertiesInDEV(target, source) {
     target = createFiber(IndeterminateComponent, null, null, NoContext);
   }
 
-  // This is intentionally written as a list of all properties.
+  // This is intentionally written as a List of all properties.
   // We tried to use Object.assign() instead but this is called in
   // the hottest path, and Object.assign() was too slow:
   // https://github.com/facebook/react/issues/12502
@@ -11852,13 +11852,13 @@ var warnForMissingKey = function (child) {};
     !(typeof child._store === 'object') ? invariant(false, 'React Component in warnForMissingKey should have a _store. This error is likely caused by a bug in React. Please file an issue.') : void 0;
     child._store.validated = true;
 
-    var currentComponentErrorInfo = 'Each child in a list should have a unique ' + '"key" prop. See https://fb.me/react-warning-keys for ' + 'more information.' + getCurrentFiberStackInDev();
+    var currentComponentErrorInfo = 'Each child in a List should have a unique ' + '"key" prop. See https://fb.me/react-warning-keys for ' + 'more information.' + getCurrentFiberStackInDev();
     if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
       return;
     }
     ownerHasKeyUseWarning[currentComponentErrorInfo] = true;
 
-    warning$1(false, 'Each child in a list should have a unique ' + '"key" prop. See https://fb.me/react-warning-keys for ' + 'more information.');
+    warning$1(false, 'Each child in a List should have a unique ' + '"key" prop. See https://fb.me/react-warning-keys for ' + 'more information.');
   };
 }
 
@@ -11945,8 +11945,8 @@ function ChildReconciler(shouldTrackSideEffects) {
       return;
     }
     // Deletions are added in reversed order so we add it to the front.
-    // At this point, the return fiber's effect list is empty except for
-    // deletions, so we can just append the deletion to the list. The remaining
+    // At this point, the return fiber's effect List is empty except for
+    // deletions, so we can just append the deletion to the List. The remaining
     // effects aren't added until the complete phase. Once we implement
     // resuming, this may not be true.
     var last = returnFiber.lastEffect;
@@ -12389,8 +12389,8 @@ function ChildReconciler(shouldTrackSideEffects) {
           if (_newFiber2.alternate !== null) {
             // The new fiber is a work in progress, but if there exists a
             // current, that means that we reused the fiber. We need to delete
-            // it from the child list so that we don't add it to the deletion
-            // list.
+            // it from the child List so that we don't add it to the deletion
+            // List.
             existingChildren.delete(_newFiber2.key === null ? newIdx : _newFiber2.key);
           }
         }
@@ -12406,7 +12406,7 @@ function ChildReconciler(shouldTrackSideEffects) {
 
     if (shouldTrackSideEffects) {
       // Any existing children that weren't consumed above were deleted. We need
-      // to add them to the deletion list.
+      // to add them to the deletion List.
       existingChildren.forEach(function (child) {
         return deleteChild(returnFiber, child);
       });
@@ -12540,8 +12540,8 @@ function ChildReconciler(shouldTrackSideEffects) {
           if (_newFiber4.alternate !== null) {
             // The new fiber is a work in progress, but if there exists a
             // current, that means that we reused the fiber. We need to delete
-            // it from the child list so that we don't add it to the deletion
-            // list.
+            // it from the child List so that we don't add it to the deletion
+            // List.
             existingChildren.delete(_newFiber4.key === null ? newIdx : _newFiber4.key);
           }
         }
@@ -12557,7 +12557,7 @@ function ChildReconciler(shouldTrackSideEffects) {
 
     if (shouldTrackSideEffects) {
       // Any existing children that weren't consumed above were deleted. We need
-      // to add them to the deletion list.
+      // to add them to the deletion List.
       existingChildren.forEach(function (child) {
         return deleteChild(returnFiber, child);
       });
@@ -12590,7 +12590,7 @@ function ChildReconciler(shouldTrackSideEffects) {
     var child = currentFirstChild;
     while (child !== null) {
       // TODO: If key === null and child.key === null, then this only applies to
-      // the first item in the list.
+      // the first item in the List.
       if (child.key === key) {
         if (child.tag === Fragment ? element.type === REACT_FRAGMENT_TYPE : child.elementType === element.type) {
           deleteRemainingChildren(returnFiber, child.sibling);
@@ -12629,7 +12629,7 @@ function ChildReconciler(shouldTrackSideEffects) {
     var child = currentFirstChild;
     while (child !== null) {
       // TODO: If key === null and child.key === null, then this only applies to
-      // the first item in the list.
+      // the first item in the List.
       if (child.key === key) {
         if (child.tag === HostPortal && child.stateNode.containerInfo === portal.containerInfo && child.stateNode.implementation === portal.implementation) {
           deleteRemainingChildren(returnFiber, child.sibling);
@@ -12652,7 +12652,7 @@ function ChildReconciler(shouldTrackSideEffects) {
   }
 
   // This API will tag the children with the side-effect of the reconciliation
-  // itself. They will be added to the side-effect list as we pass through the
+  // itself. They will be added to the side-effect List as we pass through the
   // children and the parent.
   function reconcileChildFibers(returnFiber, currentFirstChild, newChild, expirationTime) {
     // This function is not recursive.
@@ -12854,9 +12854,9 @@ var renderExpirationTime = NoWork;
 // the work-in-progress hook.
 var currentlyRenderingFiber$1 = null;
 
-// Hooks are stored as a linked list on the fiber's memoizedState field. The
-// current hook list is the list that belongs to the current fiber. The
-// work-in-progress hook list is a new list that will be added to the
+// Hooks are stored as a linked List on the fiber's memoizedState field. The
+// current hook List is the List that belongs to the current fiber. The
+// work-in-progress hook List is a new List that will be added to the
 // work-in-progress fiber.
 var currentHook = null;
 var nextCurrentHook = null;
@@ -12887,9 +12887,9 @@ var RE_RENDER_LIMIT = 25;
 // In DEV, this is the name of the currently executing primitive hook
 var currentHookNameInDev = null;
 
-// In DEV, this list ensures that hooks are called in the same order between renders.
-// The list stores the order of hooks used during the initial render (mount).
-// Subsequent renders (updates) reference this list.
+// In DEV, this List ensures that hooks are called in the same order between renders.
+// The List stores the order of hooks used during the initial render (mount).
+// Subsequent renders (updates) reference this List.
 var hookTypesDev = null;
 var hookTypesUpdateIndexDev = -1;
 
@@ -13031,7 +13031,7 @@ function renderWithHooks(current, workInProgress, Component, props, refOrContext
       didScheduleRenderPhaseUpdate = false;
       numberOfReRenders += 1;
 
-      // Start over from the beginning of the list
+      // Start over from the beginning of the List
       nextCurrentHook = current !== null ? current.memoizedState : null;
       nextWorkInProgressHook = firstWorkInProgressHook;
 
@@ -13154,10 +13154,10 @@ function mountWorkInProgressHook() {
   };
 
   if (workInProgressHook === null) {
-    // This is the first hook in the list
+    // This is the first hook in the List
     firstWorkInProgressHook = workInProgressHook = hook;
   } else {
-    // Append to the end of the list
+    // Append to the end of the List
     workInProgressHook = workInProgressHook.next = hook;
   }
   return workInProgressHook;
@@ -13167,7 +13167,7 @@ function updateWorkInProgressHook() {
   // This function is used both for updates and for re-renders triggered by a
   // render phase update. It assumes there is either a current hook we can
   // clone, or a work-in-progress hook from a previous render pass that we can
-  // use as a base. When we reach the end of the base list, we must switch to
+  // use as a base. When we reach the end of the base List, we must switch to
   // the dispatcher used for mounts.
   if (nextWorkInProgressHook !== null) {
     // There's already a work-in-progress. Reuse it.
@@ -13192,10 +13192,10 @@ function updateWorkInProgressHook() {
     };
 
     if (workInProgressHook === null) {
-      // This is the first hook in the list.
+      // This is the first hook in the List.
       workInProgressHook = firstWorkInProgressHook = newHook;
     } else {
-      // Append to the end of the list.
+      // Append to the end of the List.
       workInProgressHook = workInProgressHook.next = newHook;
     }
     nextCurrentHook = currentHook.next;
@@ -13243,7 +13243,7 @@ function updateReducer(reducer, initialArg, init) {
     // This is a re-render. Apply the new render phase updates to the previous
     var _dispatch = queue.dispatch;
     if (renderPhaseUpdates !== null) {
-      // Render phase updates are stored in a map of queue -> linked list
+      // Render phase updates are stored in a map of queue -> linked List
       var firstRenderPhaseUpdate = renderPhaseUpdates.get(queue);
       if (firstRenderPhaseUpdate !== undefined) {
         renderPhaseUpdates.delete(queue);
@@ -13292,9 +13292,9 @@ function updateReducer(reducer, initialArg, init) {
   var first = void 0;
   if (baseUpdate !== null) {
     if (last !== null) {
-      // For the first update, the queue is a circular linked list where
+      // For the first update, the queue is a circular linked List where
       // `queue.last.next = queue.first`. Once the first update commits, and
-      // the `baseUpdate` is no longer empty, we can unravel the list.
+      // the `baseUpdate` is no longer empty, we can unravel the List.
       last.next = null;
     }
     first = baseUpdate.next;
@@ -13591,7 +13591,7 @@ function dispatchAction(fiber, queue, action) {
   var alternate = fiber.alternate;
   if (fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1) {
     // This is a render phase update. Stash it in a lazily-created map of
-    // queue -> linked list of updates. After this render pass, we'll restart
+    // queue -> linked List of updates. After this render pass, we'll restart
     // and apply the stashed updates on top of the work-in-progress hook.
     didScheduleRenderPhaseUpdate = true;
     var update = {
@@ -13608,7 +13608,7 @@ function dispatchAction(fiber, queue, action) {
     if (firstRenderPhaseUpdate === undefined) {
       renderPhaseUpdates.set(queue, update);
     } else {
-      // Append the update to the end of the list.
+      // Append the update to the end of the List.
       var lastRenderPhaseUpdate = firstRenderPhaseUpdate;
       while (lastRenderPhaseUpdate.next !== null) {
         lastRenderPhaseUpdate = lastRenderPhaseUpdate.next;
@@ -13629,10 +13629,10 @@ function dispatchAction(fiber, queue, action) {
       next: null
     };
 
-    // Append the update to the end of the list.
+    // Append the update to the end of the List.
     var _last = queue.last;
     if (_last === null) {
-      // This is the first update. Create a circular list.
+      // This is the first update. Create a circular List.
       _update2.next = _update2;
     } else {
       var first = _last.next;
@@ -14208,7 +14208,7 @@ function deleteHydratableInstance(returnFiber, instance) {
   childToDelete.effectTag = Deletion;
 
   // This might seem like it belongs on progressedFirstDeletion. However,
-  // these children are not part of the reconciliation list of children.
+  // these children are not part of the reconciliation List of children.
   // Even if we abort and rereconcile the children, that will try to hydrate
   // again and the nodes are still in the host tree so these will be
   // recreated.
@@ -15439,7 +15439,7 @@ function updateDehydratedSuspenseComponent(current$$1, workInProgress, renderExp
     current$$1.alternate = null;
     workInProgress.alternate = null;
 
-    // Insert a deletion in the effect list.
+    // Insert a deletion in the effect List.
     var returnFiber = workInProgress.return;
     !(returnFiber !== null) ? invariant(false, 'Suspense boundaries are never on the root. This is probably a bug in React.') : void 0;
     var last = returnFiber.lastEffect;
@@ -15588,7 +15588,7 @@ function bailoutOnAlreadyFinishedWork(current$$1, workInProgress, renderExpirati
   cancelWorkTimer(workInProgress);
 
   if (current$$1 !== null) {
-    // Reuse previous context list
+    // Reuse previous context List
     workInProgress.contextDependencies = current$$1.contextDependencies;
   }
 
@@ -15948,13 +15948,13 @@ function propagateContextChange(workInProgress, context, changedBits, renderExpi
 
           scheduleWorkOnParentPath(fiber.return, renderExpirationTime);
 
-          // Mark the expiration time on the list, too.
+          // Mark the expiration time on the List, too.
           if (list.expirationTime < renderExpirationTime) {
             list.expirationTime = renderExpirationTime;
           }
 
           // Since we already found a match, we can stop traversing the
-          // dependency list.
+          // dependency List.
           break;
         }
         dependency = dependency.next;
@@ -16018,11 +16018,11 @@ function prepareToReadContext(workInProgress, renderExpirationTime) {
 
   var currentDependencies = workInProgress.contextDependencies;
   if (currentDependencies !== null && currentDependencies.expirationTime >= renderExpirationTime) {
-    // Context list has a pending update. Mark that this fiber performed work.
+    // Context List has a pending update. Mark that this fiber performed work.
     markWorkInProgressReceivedUpdate();
   }
 
-  // Reset the work-in-progress list
+  // Reset the work-in-progress List
   workInProgress.contextDependencies = null;
 }
 
@@ -16056,7 +16056,7 @@ function readContext(context, observedBits) {
     if (lastContextDependency === null) {
       !(currentlyRenderingFiber !== null) ? invariant(false, 'Context can only be read while React is rendering. In classes, you can read it in the render method or getDerivedStateFromProps. In function components, you can read it directly in the function body, but not inside Hooks like useReducer() or useMemo().') : void 0;
 
-      // This is the first dependency for this component. Create a new list.
+      // This is the first dependency for this component. Create a new List.
       lastContextDependency = contextItem;
       currentlyRenderingFiber.contextDependencies = {
         first: contextItem,
@@ -16070,7 +16070,7 @@ function readContext(context, observedBits) {
   return isPrimaryRenderer ? context._currentValue : context._currentValue2;
 }
 
-// UpdateQueue is a linked list of prioritized updates.
+// UpdateQueue is a linked List of prioritized updates.
 //
 // Like fibers, update queues come in pairs: a current queue, which represents
 // the visible state of the screen, and a work-in-progress queue, which can be
@@ -16078,9 +16078,9 @@ function readContext(context, observedBits) {
 // double buffering. If a work-in-progress render is discarded before finishing,
 // we create a new work-in-progress by cloning the current queue.
 //
-// Both queues share a persistent, singly-linked list structure. To schedule an
+// Both queues share a persistent, singly-linked List structure. To schedule an
 // update, we append it to the end of both queues. Each queue maintains a
-// pointer to first update in the persistent list that hasn't been processed.
+// pointer to first update in the persistent List that hasn't been processed.
 // The work-in-progress pointer always has a position equal to or greater than
 // the current queue, since we always work on that one. The current queue's
 // pointer is only updated during the commit phase, when we swap in the
@@ -16109,7 +16109,7 @@ function readContext(context, observedBits) {
 // --------------
 //
 // Updates are not sorted by priority, but by insertion; new updates are always
-// appended to the end of the list.
+// appended to the end of the List.
 //
 // The priority is still important, though. When processing the update queue
 // during the render phase, only the updates with sufficient priority are
@@ -16217,7 +16217,7 @@ function createUpdate(expirationTime) {
 }
 
 function appendUpdateToQueue(queue, update) {
-  // Append the update to the end of the list.
+  // Append the update to the end of the List.
   if (queue.lastUpdate === null) {
     // Queue is empty
     queue.firstUpdate = queue.lastUpdate = update;
@@ -16266,7 +16266,7 @@ function enqueueUpdate(fiber, update) {
     appendUpdateToQueue(queue1, update);
   } else {
     // There are two queues. We need to append the update to both queues,
-    // while accounting for the persistent structure of the list — we don't
+    // while accounting for the persistent structure of the List — we don't
     // want the same update to be added multiple times.
     if (queue1.lastUpdate === null || queue2.lastUpdate === null) {
       // One of the queues is not empty. We must add the update to both queues.
@@ -16290,7 +16290,7 @@ function enqueueUpdate(fiber, update) {
 }
 
 function enqueueCapturedUpdate(workInProgress, update) {
-  // Captured updates go into a separate list, and only on the work-in-
+  // Captured updates go into a separate List, and only on the work-in-
   // progress queue.
   var workInProgressQueue = workInProgress.updateQueue;
   if (workInProgressQueue === null) {
@@ -16302,7 +16302,7 @@ function enqueueCapturedUpdate(workInProgress, update) {
     workInProgressQueue = ensureWorkInProgressQueueIsAClone(workInProgress, workInProgressQueue);
   }
 
-  // Append the update to the end of the list.
+  // Append the update to the end of the List.
   if (workInProgressQueue.lastCapturedUpdate === null) {
     // This is the first render phase update
     workInProgressQueue.firstCapturedUpdate = workInProgressQueue.lastCapturedUpdate = update;
@@ -16401,7 +16401,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
   var newFirstUpdate = null;
   var newExpirationTime = NoWork;
 
-  // Iterate through the list of updates to compute the result.
+  // Iterate through the List of updates to compute the result.
   var update = queue.firstUpdate;
   var resultState = newBaseState;
   while (update !== null) {
@@ -16410,13 +16410,13 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
       // This update does not have sufficient priority. Skip it.
       if (newFirstUpdate === null) {
         // This is the first skipped update. It will be the first update in
-        // the new list.
+        // the new List.
         newFirstUpdate = update;
         // Since this is the first update that was skipped, the current result
         // is the new base state.
         newBaseState = resultState;
       }
-      // Since this update will remain in the list, update the remaining
+      // Since this update will remain in the List, update the remaining
       // expiration time.
       if (newExpirationTime < updateExpirationTime) {
         newExpirationTime = updateExpirationTime;
@@ -16442,7 +16442,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
     update = update.next;
   }
 
-  // Separately, iterate though the list of captured updates.
+  // Separately, iterate though the List of captured updates.
   var newFirstCapturedUpdate = null;
   update = queue.firstCapturedUpdate;
   while (update !== null) {
@@ -16451,7 +16451,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
       // This update does not have sufficient priority. Skip it.
       if (newFirstCapturedUpdate === null) {
         // This is the first skipped captured update. It will be the first
-        // update in the new list.
+        // update in the new List.
         newFirstCapturedUpdate = update;
         // If this is the first update that was skipped, the current result is
         // the new base state.
@@ -16459,7 +16459,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
           newBaseState = resultState;
         }
       }
-      // Since this update will remain in the list, update the remaining
+      // Since this update will remain in the List, update the remaining
       // expiration time.
       if (newExpirationTime < _updateExpirationTime) {
         newExpirationTime = _updateExpirationTime;
@@ -16536,12 +16536,12 @@ function commitUpdateQueue(finishedWork, finishedQueue, instance, renderExpirati
   // in the queue so that they are rebased and not dropped once we process the
   // queue again at the lower priority.
   if (finishedQueue.firstCapturedUpdate !== null) {
-    // Join the captured update list to the end of the normal list.
+    // Join the captured update List to the end of the normal List.
     if (finishedQueue.lastUpdate !== null) {
       finishedQueue.lastUpdate.next = finishedQueue.firstCapturedUpdate;
       finishedQueue.lastUpdate = finishedQueue.lastCapturedUpdate;
     }
-    // Clear the list of captured updates.
+    // Clear the List of captured updates.
     finishedQueue.firstCapturedUpdate = finishedQueue.lastCapturedUpdate = null;
   }
 
@@ -17040,7 +17040,7 @@ function completeWork(current, workInProgress, renderExpirationTime) {
         if ((workInProgress.effectTag & DidCapture) !== NoEffect) {
           // Something suspended. Re-render with the fallback children.
           workInProgress.expirationTime = renderExpirationTime;
-          // Do not reset the effect list.
+          // Do not reset the effect List.
           return workInProgress;
         }
 
@@ -17053,7 +17053,7 @@ function completeWork(current, workInProgress, renderExpirationTime) {
           // TODO: Would it be better to store the fallback fragment on
           var currentFallbackChild = current.child.sibling;
           if (currentFallbackChild !== null) {
-            // Deletions go at the beginning of the return fiber's effect list
+            // Deletions go at the beginning of the return fiber's effect List
             var first = workInProgress.firstEffect;
             if (first !== null) {
               workInProgress.firstEffect = currentFallbackChild;
@@ -18228,7 +18228,7 @@ function attachPingListener(root, renderExpirationTime, thenable) {
 function throwException(root, returnFiber, sourceFiber, value, renderExpirationTime) {
   // The source fiber did not complete.
   sourceFiber.effectTag |= Incomplete;
-  // Its effect list is no longer valid.
+  // Its effect List is no longer valid.
   sourceFiber.firstEffect = sourceFiber.lastEffect = null;
 
   if (value !== null && typeof value === 'object' && typeof value.then === 'function') {
@@ -18943,9 +18943,9 @@ function commitRoot(root, finishedWork) {
 
   var firstEffect = void 0;
   if (finishedWork.effectTag > PerformedWork) {
-    // A fiber's effect list consists only of its children, not itself. So if
-    // the root has an effect, we need to add it to the end of the list. The
-    // resulting list is the set that would belong to the root's parent, if
+    // A fiber's effect List consists only of its children, not itself. So if
+    // the root has an effect, we need to add it to the end of the List. The
+    // resulting List is the set that would belong to the root's parent, if
     // it had one; that is, all the effects in the tree including the root.
     if (finishedWork.lastEffect !== null) {
       finishedWork.lastEffect.nextEffect = finishedWork;
@@ -19255,7 +19255,7 @@ function completeUnitOfWork(workInProgress) {
       // Do not append effects to parents if a sibling failed to complete
       (returnFiber.effectTag & Incomplete) === NoEffect) {
         // Append all the effects of the subtree and this fiber onto the effect
-        // list of the parent. The completion order of the children affects the
+        // List of the parent. The completion order of the children affects the
         // side-effect order.
         if (returnFiber.firstEffect === null) {
           returnFiber.firstEffect = workInProgress.firstEffect;
@@ -19269,12 +19269,12 @@ function completeUnitOfWork(workInProgress) {
 
         // If this fiber had side-effects, we append it AFTER the children's
         // side-effects. We can perform certain side-effects earlier if
-        // needed, by doing multiple passes over the effect list. We don't want
-        // to schedule our own side-effect on our own list because if end up
+        // needed, by doing multiple passes over the effect List. We don't want
+        // to schedule our own side-effect on our own List because if end up
         // reusing children we'll schedule this effect onto itself since we're
         // at the end.
         var effectTag = workInProgress.effectTag;
-        // Skip both NoWork and PerformedWork tags when creating the effect list.
+        // Skip both NoWork and PerformedWork tags when creating the effect List.
         // PerformedWork effect is read by React DevTools but shouldn't be committed.
         if (effectTag > PerformedWork) {
           if (returnFiber.lastEffect !== null) {
@@ -19347,7 +19347,7 @@ function completeUnitOfWork(workInProgress) {
       }
 
       if (returnFiber !== null) {
-        // Mark the parent fiber as incomplete and clear its effect list.
+        // Mark the parent fiber as incomplete and clear its effect List.
         returnFiber.firstEffect = returnFiber.lastEffect = null;
         returnFiber.effectTag |= Incomplete;
       }
@@ -20015,7 +20015,7 @@ function syncUpdates(fn, a, b, c, d) {
 // TODO: Everything below this is written as if it has been lifted to the
 // renderers. I'll do this in a follow-up.
 
-// Linked-list of roots
+// Linked-List of roots
 var firstScheduledRoot = null;
 var lastScheduledRoot = null;
 
@@ -20229,18 +20229,18 @@ function findHighestPriorityRoot() {
         // from the loop right after.
         !(previousScheduledRoot !== null && lastScheduledRoot !== null) ? invariant(false, 'Should have a previous and last root. This error is likely caused by a bug in React. Please file an issue.') : void 0;
         if (root === root.nextScheduledRoot) {
-          // This is the only root in the list.
+          // This is the only root in the List.
           root.nextScheduledRoot = null;
           firstScheduledRoot = lastScheduledRoot = null;
           break;
         } else if (root === firstScheduledRoot) {
-          // This is the first root in the list.
+          // This is the first root in the List.
           var next = root.nextScheduledRoot;
           firstScheduledRoot = next;
           lastScheduledRoot.nextScheduledRoot = next;
           root.nextScheduledRoot = null;
         } else if (root === lastScheduledRoot) {
-          // This is the last root in the list.
+          // This is the last root in the List.
           lastScheduledRoot = previousScheduledRoot;
           lastScheduledRoot.nextScheduledRoot = firstScheduledRoot;
           root.nextScheduledRoot = null;
@@ -20931,7 +20931,7 @@ ReactBatch.prototype.commit = function () {
 
   var expirationTime = this._expirationTime;
 
-  // Ensure this is the first batch in the list.
+  // Ensure this is the first batch in the List.
   if (firstBatch !== this) {
     // This batch is not the earliest batch. We need to move it to the front.
     // Update its expiration time to be the expiration time of the earliest
@@ -20945,7 +20945,7 @@ ReactBatch.prototype.commit = function () {
       this.render(this._children);
     }
 
-    // Remove the batch from the list.
+    // Remove the batch from the List.
     var previous = null;
     var batch = firstBatch;
     while (batch !== this) {
@@ -20964,7 +20964,7 @@ ReactBatch.prototype.commit = function () {
   this._defer = false;
   flushRoot(internalRoot, expirationTime);
 
-  // Pop the batch from the list.
+  // Pop the batch from the List.
   var next = this._next;
   this._next = null;
   firstBatch = internalRoot.firstBatch = next;
@@ -20994,7 +20994,7 @@ function ReactWork() {
   this._callbacks = null;
   this._didCommit = false;
   // TODO: Avoid need to bind by replacing callbacks in the update queue with
-  // list of Work objects.
+  // List of Work objects.
   this._onCommit = this._onCommit.bind(this);
 }
 ReactWork.prototype.then = function (onCommit) {

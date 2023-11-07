@@ -299,7 +299,7 @@
     this.type = type;
     this.sanitizeURL = sanitizeURL;
     this.removeEmptyString = removeEmptyString;
-  } // When adding attributes to this list, be sure to also add them to
+  } // When adding attributes to this List, be sure to also add them to
   // the `possibleStandardNames` module to ensure casing and incorrect
   // name warnings.
 
@@ -364,7 +364,7 @@
 
   ['checked', // Note: `option.selected` is not updated if `select.multiple` is
   // disabled with `removeAttribute`. We have special logic for handling this.
-  'multiple', 'muted', 'selected' // NOTE: if you add a camelCased prop to this list,
+  'multiple', 'muted', 'selected' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (name) {
@@ -376,7 +376,7 @@
   }); // These are HTML attributes that are "overloaded booleans": they behave like
   // booleans, but can also accept a string value.
 
-  ['capture', 'download' // NOTE: if you add a camelCased prop to this list,
+  ['capture', 'download' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (name) {
@@ -387,7 +387,7 @@
     false);
   }); // These are HTML attributes that must be positive numbers.
 
-  ['cols', 'rows', 'size', 'span' // NOTE: if you add a camelCased prop to this list,
+  ['cols', 'rows', 'size', 'span' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (name) {
@@ -409,14 +409,14 @@
 
   var capitalize = function (token) {
     return token[1].toUpperCase();
-  }; // This is a list of all SVG attributes that need special casing, namespacing,
+  }; // This is a List of all SVG attributes that need special casing, namespacing,
   // or boolean value assignment. Regular attributes that just accept strings
   // and have the same names are omitted, just like in the HTML attribute filter.
-  // Some of these attributes can be hard to find. This list was created by
+  // Some of these attributes can be hard to find. This List was created by
   // scraping the MDN documentation.
 
 
-  ['accent-height', 'alignment-baseline', 'arabic-form', 'baseline-shift', 'cap-height', 'clip-path', 'clip-rule', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'dominant-baseline', 'enable-background', 'fill-opacity', 'fill-rule', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-name', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'horiz-adv-x', 'horiz-origin-x', 'image-rendering', 'letter-spacing', 'lighting-color', 'marker-end', 'marker-mid', 'marker-start', 'overline-position', 'overline-thickness', 'paint-order', 'panose-1', 'pointer-events', 'rendering-intent', 'shape-rendering', 'stop-color', 'stop-opacity', 'strikethrough-position', 'strikethrough-thickness', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-decoration', 'text-rendering', 'underline-position', 'underline-thickness', 'unicode-bidi', 'unicode-range', 'units-per-em', 'v-alphabetic', 'v-hanging', 'v-ideographic', 'v-mathematical', 'vector-effect', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'word-spacing', 'writing-mode', 'xmlns:xlink', 'x-height' // NOTE: if you add a camelCased prop to this list,
+  ['accent-height', 'alignment-baseline', 'arabic-form', 'baseline-shift', 'cap-height', 'clip-path', 'clip-rule', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'dominant-baseline', 'enable-background', 'fill-opacity', 'fill-rule', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-name', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'horiz-adv-x', 'horiz-origin-x', 'image-rendering', 'letter-spacing', 'lighting-color', 'marker-end', 'marker-mid', 'marker-start', 'overline-position', 'overline-thickness', 'paint-order', 'panose-1', 'pointer-events', 'rendering-intent', 'shape-rendering', 'stop-color', 'stop-opacity', 'strikethrough-position', 'strikethrough-thickness', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-decoration', 'text-rendering', 'underline-position', 'underline-thickness', 'unicode-bidi', 'unicode-range', 'units-per-em', 'v-alphabetic', 'v-hanging', 'v-ideographic', 'v-mathematical', 'vector-effect', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'word-spacing', 'writing-mode', 'xmlns:xlink', 'x-height' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (attributeName) {
@@ -427,7 +427,7 @@
     false);
   }); // String SVG attributes with the xlink namespace.
 
-  ['xlink:actuate', 'xlink:arcrole', 'xlink:role', 'xlink:show', 'xlink:title', 'xlink:type' // NOTE: if you add a camelCased prop to this list,
+  ['xlink:actuate', 'xlink:arcrole', 'xlink:role', 'xlink:show', 'xlink:title', 'xlink:type' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (attributeName) {
@@ -437,7 +437,7 @@
     false);
   }); // String SVG attributes with the xml namespace.
 
-  ['xml:base', 'xml:lang', 'xml:space' // NOTE: if you add a camelCased prop to this list,
+  ['xml:base', 'xml:lang', 'xml:space' // NOTE: if you add a camelCased prop to this List,
   // you'll need to set attributeName to name.toLowerCase()
   // instead in the assignment below.
   ].forEach(function (attributeName) {
@@ -611,7 +611,7 @@
 
     if (shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag)) {
       value = null;
-    } // If the prop isn't in the special list, treat it as a simple attribute.
+    } // If the prop isn't in the special List, treat it as a simple attribute.
 
 
     if (isCustomComponentTag || propertyInfo === null) {
@@ -2648,7 +2648,7 @@
     }
   }
 
-  // For HTML, certain tags should omit their close tag. We keep a list for
+  // For HTML, certain tags should omit their close tag. We keep a List for
   // those special-case tags.
   var omittedCloseTags = {
     area: true,
@@ -2725,7 +2725,7 @@
 
     switch (tagName) {
       // These are reserved SVG and MathML elements.
-      // We don't mind this list too much because we expect it to never grow.
+      // We don't mind this List too much because we expect it to never grow.
       // The alternative is to track the namespace in a few places which is convoluted.
       // https://w3c.github.io/webcomponents/spec/custom/#custom-elements-core-concepts
       case 'annotation-xml':
@@ -2743,7 +2743,7 @@
     }
   }
 
-  // When adding attributes to the HTML or SVG allowed attribute list, be sure to
+  // When adding attributes to the HTML or SVG allowed attribute List, be sure to
   // also add them to this module to ensure casing and incorrect name
   // warnings.
   var possibleStandardNames = {
@@ -4967,7 +4967,7 @@
     return prefixes;
   }
   /**
-   * A list of event names to a configurable list of vendor prefixes.
+   * A List of event names to a configurable List of vendor prefixes.
    */
 
 
@@ -6413,7 +6413,7 @@
    * @see http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105
    *      /#events-inputevents
    */
-  // Happens to share the same list for now.
+  // Happens to share the same List for now.
 
   var SyntheticInputEvent = SyntheticCompositionEvent;
   /**
@@ -7702,7 +7702,7 @@
   function setOffsets(node, offsets) {
     var doc = node.ownerDocument || document;
     var win = doc && doc.defaultView || window; // Edge fails with "Object expected" in some scenarios.
-    // (For instance: TinyMCE editor used in a list component that supports pasting to add more,
+    // (For instance: TinyMCE editor used in a List component that supports pasting to add more,
     // fails when pasting 100+ items)
 
     if (!win.getSelection) {
@@ -8192,8 +8192,8 @@
       // We're going to try aligning closer to the browser behavior by not bubbling
       // them in React either. We'll start by not bubbling onScroll, and then expand.
       var accumulateTargetOnly = !inCapturePhase && // TODO: ideally, we'd eventually add all events from
-      // nonDelegatedEvents list in DOMPluginEventSystem.
-      // Then we can remove this special list.
+      // nonDelegatedEvents List in DOMPluginEventSystem.
+      // Then we can remove this special List.
       // This is a breaking change that can wait until React 18.
       domEventName === 'scroll';
 
@@ -8374,7 +8374,7 @@
       // special case the scroll event because the reality is that any
       // element can scroll.
       // TODO: ideally, we'd eventually apply the same logic to all
-      // events from the nonDelegatedEvents list. Then we can remove
+      // events from the nonDelegatedEvents List. Then we can remove
       // this special case and use the same logic for all events.
       if (domEventName !== 'scroll') {
         return;
@@ -9266,7 +9266,7 @@
         }
       } else {
         // For all other deleted properties we add it to the queue. We use
-        // the allowed property list in the commit phase instead.
+        // the allowed property List in the commit phase instead.
         (updatePayload = updatePayload || []).push(propKey, null);
       }
     }
@@ -9360,7 +9360,7 @@
         nextProp.toString();
       } else {
         // For any other property we always add it to the queue and then we
-        // filter it out using the allowed property list during the commit.
+        // filter it out using the allowed property List during the commit.
         (updatePayload = updatePayload || []).push(propKey, nextProp);
       }
     }
@@ -10037,7 +10037,7 @@
           return ancestorInfo.buttonTagInScope;
 
         case 'a':
-          // Spec says something about storing a list of markers, but it sounds
+          // Spec says something about storing a List of markers, but it sounds
           // equivalent to this check.
           return ancestorInfo.aTagInScope;
 
@@ -11785,10 +11785,10 @@
               alternate.lanes = mergeLanes(alternate.lanes, renderLanes);
             }
 
-            scheduleWorkOnParentPath(fiber.return, renderLanes); // Mark the updated lanes on the list, too.
+            scheduleWorkOnParentPath(fiber.return, renderLanes); // Mark the updated lanes on the List, too.
 
             list.lanes = mergeLanes(list.lanes, renderLanes); // Since we already found a match, we can stop traversing the
-            // dependency list.
+            // dependency List.
 
             break;
           }
@@ -11845,9 +11845,9 @@
 
       if (firstContext !== null) {
         if (includesSomeLane(dependencies.lanes, renderLanes)) {
-          // Context list has a pending update. Mark that this fiber performed work.
+          // Context List has a pending update. Mark that this fiber performed work.
           markWorkInProgressReceivedUpdate();
-        } // Reset the work-in-progress list
+        } // Reset the work-in-progress List
 
 
         dependencies.firstContext = null;
@@ -11885,7 +11885,7 @@
           {
             throw Error( "Context can only be read while React is rendering. In classes, you can read it in the render method or getDerivedStateFromProps. In function components, you can read it directly in the function body, but not inside Hooks like useReducer() or useMemo()." );
           }
-        } // This is the first dependency for this component. Create a new list.
+        } // This is the first dependency for this component. Create a new List.
 
 
         lastContextDependency = contextItem;
@@ -11970,7 +11970,7 @@
     var pending = sharedQueue.pending;
 
     if (pending === null) {
-      // This is the first update. Create a circular list.
+      // This is the first update. Create a circular List.
       update.next = update;
     } else {
       update.next = pending.next;
@@ -12031,7 +12031,7 @@
             }
 
             update = update.next;
-          } while (update !== null); // Append the captured update the end of the cloned list.
+          } while (update !== null); // Append the captured update the end of the cloned List.
 
 
           if (newLast === null) {
@@ -12055,7 +12055,7 @@
         workInProgress.updateQueue = queue;
         return;
       }
-    } // Append the update to the end of the list.
+    } // Append the update to the end of the List.
 
 
     var lastBaseUpdate = queue.lastBaseUpdate;
@@ -12190,7 +12190,7 @@
 
       lastBaseUpdate = lastPendingUpdate; // If there's a current queue, and it's different from the base queue, then
       // we need to transfer the updates to that queue, too. Because the base
-      // queue is a singly-linked list with no cycles, we can append to both
+      // queue is a singly-linked List with no cycles, we can append to both
       // lists and take advantage of structural sharing.
       // TODO: Pass `current` as argument
 
@@ -12215,7 +12215,7 @@
 
 
     if (firstBaseUpdate !== null) {
-      // Iterate through the list of updates to compute the result.
+      // Iterate through the List of updates to compute the result.
       var newState = queue.baseState; // TODO: Don't need to accumulate this. Instead, we can remove renderLanes
       // from the original lanes.
 
@@ -12293,8 +12293,8 @@
             break;
           } else {
             // An update was scheduled from inside a reducer. Add the new
-            // pending updates to the end of the list and keep processing.
-            var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular list, but we
+            // pending updates to the end of the List and keep processing.
+            var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular List, but we
             // unravel them when transferring them to the base queue.
 
             var _firstPendingUpdate = _lastPendingUpdate.next;
@@ -13154,7 +13154,7 @@
 
       ownerHasKeyUseWarning[componentName] = true;
 
-      error('Each child in a list should have a unique ' + '"key" prop. See https://reactjs.org/link/warning-keys for ' + 'more information.');
+      error('Each child in a List should have a unique ' + '"key" prop. See https://reactjs.org/link/warning-keys for ' + 'more information.');
     };
   }
 
@@ -13280,8 +13280,8 @@
         // Noop.
         return;
       } // Deletions are added in reversed order so we add it to the front.
-      // At this point, the return fiber's effect list is empty except for
-      // deletions, so we can just append the deletion to the list. The remaining
+      // At this point, the return fiber's effect List is empty except for
+      // deletions, so we can just append the deletion to the List. The remaining
       // effects aren't added until the complete phase. Once we implement
       // resuming, this may not be true.
 
@@ -13770,8 +13770,8 @@
             if (_newFiber2.alternate !== null) {
               // The new fiber is a work in progress, but if there exists a
               // current, that means that we reused the fiber. We need to delete
-              // it from the child list so that we don't add it to the deletion
-              // list.
+              // it from the child List so that we don't add it to the deletion
+              // List.
               existingChildren.delete(_newFiber2.key === null ? newIdx : _newFiber2.key);
             }
           }
@@ -13790,7 +13790,7 @@
 
       if (shouldTrackSideEffects) {
         // Any existing children that weren't consumed above were deleted. We need
-        // to add them to the deletion list.
+        // to add them to the deletion List.
         existingChildren.forEach(function (child) {
           return deleteChild(returnFiber, child);
         });
@@ -13952,8 +13952,8 @@
             if (_newFiber4.alternate !== null) {
               // The new fiber is a work in progress, but if there exists a
               // current, that means that we reused the fiber. We need to delete
-              // it from the child list so that we don't add it to the deletion
-              // list.
+              // it from the child List so that we don't add it to the deletion
+              // List.
               existingChildren.delete(_newFiber4.key === null ? newIdx : _newFiber4.key);
             }
           }
@@ -13972,7 +13972,7 @@
 
       if (shouldTrackSideEffects) {
         // Any existing children that weren't consumed above were deleted. We need
-        // to add them to the deletion list.
+        // to add them to the deletion List.
         existingChildren.forEach(function (child) {
           return deleteChild(returnFiber, child);
         });
@@ -14007,7 +14007,7 @@
 
       while (child !== null) {
         // TODO: If key === null and child.key === null, then this only applies to
-        // the first item in the list.
+        // the first item in the List.
         if (child.key === key) {
           switch (child.tag) {
             case Fragment:
@@ -14085,7 +14085,7 @@
 
       while (child !== null) {
         // TODO: If key === null and child.key === null, then this only applies to
-        // the first item in the list.
+        // the first item in the List.
         if (child.key === key) {
           if (child.tag === HostPortal && child.stateNode.containerInfo === portal.containerInfo && child.stateNode.implementation === portal.implementation) {
             deleteRemainingChildren(returnFiber, child.sibling);
@@ -14107,7 +14107,7 @@
       created.return = returnFiber;
       return created;
     } // This API will tag the children with the side-effect of the reconciliation
-    // itself. They will be added to the side-effect list as we pass through the
+    // itself. They will be added to the side-effect List as we pass through the
     // children and the parent.
 
 
@@ -14317,7 +14317,7 @@
   var DefaultSuspenseContext = 0; // The Suspense Context is split into two parts. The lower bits is
   // inherited deeply down the subtree. The upper bits only affect
   // this immediate suspense boundary and gets reset each new
-  // boundary or suspense list.
+  // boundary or suspense List.
 
   var SubtreeSuspenseContextMask = 1; // Subtree Flags:
   // InvisibleParentSuspenseContext indicates that one of our parent Suspense
@@ -14480,7 +14480,7 @@
     childToDelete.stateNode = instance;
     childToDelete.return = returnFiber;
     childToDelete.flags = Deletion; // This might seem like it belongs on progressedFirstDeletion. However,
-    // these children are not part of the reconciliation list of children.
+    // these children are not part of the reconciliation List of children.
     // Even if we abort and rereconcile the children, that will try to hydrate
     // again and the nodes are still in the host tree so these will be
     // recreated.
@@ -14825,9 +14825,9 @@
   var renderLanes = NoLanes; // The work-in-progress fiber. I've named it differently to distinguish it from
   // the work-in-progress hook.
 
-  var currentlyRenderingFiber$1 = null; // Hooks are stored as a linked list on the fiber's memoizedState field. The
-  // current hook list is the list that belongs to the current fiber. The
-  // work-in-progress hook list is a new list that will be added to the
+  var currentlyRenderingFiber$1 = null; // Hooks are stored as a linked List on the fiber's memoizedState field. The
+  // current hook List is the List that belongs to the current fiber. The
+  // work-in-progress hook List is a new List that will be added to the
   // work-in-progress fiber.
 
   var currentHook = null;
@@ -14844,9 +14844,9 @@
   var didScheduleRenderPhaseUpdateDuringThisPass = false;
   var RE_RENDER_LIMIT = 25; // In DEV, this is the name of the currently executing primitive hook
 
-  var currentHookNameInDev = null; // In DEV, this list ensures that hooks are called in the same order between renders.
-  // The list stores the order of hooks used during the initial render (mount).
-  // Subsequent renders (updates) reference this list.
+  var currentHookNameInDev = null; // In DEV, this List ensures that hooks are called in the same order between renders.
+  // The List stores the order of hooks used during the initial render (mount).
+  // Subsequent renders (updates) reference this List.
 
   var hookTypesDev = null;
   var hookTypesUpdateIndexDev = -1; // In DEV, this tracks whether currently rendering component needs to ignore
@@ -15026,7 +15026,7 @@
           // Even when hot reloading, allow dependencies to stabilize
           // after first render to prevent infinite render phase updates.
           ignorePreviousDependencies = false;
-        } // Start over from the beginning of the list
+        } // Start over from the beginning of the List
 
 
         currentHook = null;
@@ -15134,10 +15134,10 @@
     };
 
     if (workInProgressHook === null) {
-      // This is the first hook in the list
+      // This is the first hook in the List
       currentlyRenderingFiber$1.memoizedState = workInProgressHook = hook;
     } else {
-      // Append to the end of the list
+      // Append to the end of the List
       workInProgressHook = workInProgressHook.next = hook;
     }
 
@@ -15148,7 +15148,7 @@
     // This function is used both for updates and for re-renders triggered by a
     // render phase update. It assumes there is either a current hook we can
     // clone, or a work-in-progress hook from a previous render pass that we can
-    // use as a base. When we reach the end of the base list, we must switch to
+    // use as a base. When we reach the end of the base List, we must switch to
     // the dispatcher used for mounts.
     var nextCurrentHook;
 
@@ -15195,10 +15195,10 @@
       };
 
       if (workInProgressHook === null) {
-        // This is the first hook in the list.
+        // This is the first hook in the List.
         currentlyRenderingFiber$1.memoizedState = workInProgressHook = newHook;
       } else {
-        // Append to the end of the list.
+        // Append to the end of the List.
         workInProgressHook = workInProgressHook.next = newHook;
       }
     }
@@ -16089,12 +16089,12 @@
       eagerReducer: null,
       eagerState: null,
       next: null
-    }; // Append the update to the end of the list.
+    }; // Append the update to the end of the List.
 
     var pending = queue.pending;
 
     if (pending === null) {
-      // This is the first update. Create a circular list.
+      // This is the first update. Create a circular List.
       update.next = update;
     } else {
       update.next = pending.next;
@@ -16106,7 +16106,7 @@
 
     if (fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1) {
       // This is a render phase update. Stash it in a lazily-created map of
-      // queue -> linked list of updates. After this render pass, we'll restart
+      // queue -> linked List of updates. After this render pass, we'll restart
       // and apply the stashed updates on top of the work-in-progress hook.
       didScheduleRenderPhaseUpdateDuringThisPass = didScheduleRenderPhaseUpdate = true;
     } else {
@@ -18293,9 +18293,9 @@
         primaryChildFragment.treeBaseDuration = currentPrimaryChildFragment.treeBaseDuration;
       } // The fallback fiber was added as a deletion effect during the first pass.
       // However, since we're going to remain on the fallback, we no longer want
-      // to delete it. So we need to remove it from the list. Deletions are stored
-      // on the same list as effects. We want to keep the effects from the primary
-      // tree. So we copy the primary child fragment's effect list, which does not
+      // to delete it. So we need to remove it from the List. Deletions are stored
+      // on the same List as effects. We want to keep the effects from the primary
+      // tree. So we copy the primary child fragment's effect List, which does not
       // include the fallback deletion effect.
 
 
@@ -18358,9 +18358,9 @@
       } else if (node.tag === SuspenseListComponent) {
         // If the tail is hidden there might not be an Suspense boundaries
         // to schedule work on. In this case we have to schedule it on the
-        // list itself.
-        // We don't have to traverse to the children of the list since
-        // the list will propagate the change when it rerenders.
+        // List itself.
+        // We don't have to traverse to the children of the List since
+        // the List will propagate the change when it rerenders.
         scheduleWorkOnFiber(node, renderLanes);
       } else if (node.child !== null) {
         node.child.return = node;
@@ -18587,7 +18587,7 @@
             var tail;
 
             if (lastContentRow === null) {
-              // The whole list is part of the tail.
+              // The whole List is part of the tail.
               // TODO: We could fast path by just rendering the tail now.
               tail = workInProgress.child;
               workInProgress.child = null;
@@ -18606,7 +18606,7 @@
         case 'backwards':
           {
             // We're going to find the first row that has existing content.
-            // At the same time we're going to reverse the list of everything
+            // At the same time we're going to reverse the List of everything
             // we pass in the meantime. That's going to be our tail in reverse
             // order.
             var _tail = null;
@@ -19312,7 +19312,7 @@
     switch (renderState.tailMode) {
       case 'hidden':
         {
-          // Any insertions at the end of the tail list after this point
+          // Any insertions at the end of the tail List after this point
           // should be invisible. If there are already mounted boundaries
           // anything before them are not considered for collapsing.
           // Therefore we need to go through the whole tail to find if
@@ -19344,7 +19344,7 @@
 
       case 'collapsed':
         {
-          // Any insertions at the end of the tail list after this point
+          // Any insertions at the end of the tail List after this point
           // should be invisible. If there are already mounted boundaries
           // anything before them are not considered for collapsing.
           // Therefore we need to go through the whole tail to find if
@@ -19547,7 +19547,7 @@
 
           if ((workInProgress.flags & DidCapture) !== NoFlags) {
             // Something suspended. Re-render with the fallback children.
-            workInProgress.lanes = renderLanes; // Do not reset the effect list.
+            workInProgress.lanes = renderLanes; // Do not reset the effect List.
 
             if ( (workInProgress.mode & ProfileMode) !== NoMode) {
               transferActualDuration(workInProgress);
@@ -19680,7 +19680,7 @@
                     // part of the second pass. In that case nothing will subscribe to
                     // its thennables. Instead, we'll transfer its thennables to the
                     // SuspenseList so that it can retry if they resolve.
-                    // There might be multiple of these in the list but since we're
+                    // There might be multiple of these in the List but since we're
                     // going to wait for all of them anyway, it doesn't really matter
                     // which ones gets to ping. In theory we could get clever and keep
                     // track of how many dependencies remain but it gets tricky because
@@ -19694,9 +19694,9 @@
                     if (newThennables !== null) {
                       workInProgress.updateQueue = newThennables;
                       workInProgress.flags |= Update;
-                    } // Rerender the whole list, but this time, we'll force fallbacks
+                    } // Rerender the whole List, but this time, we'll force fallbacks
                     // to stay in place.
-                    // Reset the effect list before doing the second pass since that's now invalid.
+                    // Reset the effect List before doing the second pass since that's now invalid.
 
 
                     if (renderState.lastEffect === null) {
@@ -19742,7 +19742,7 @@
             } // Next we're going to render the tail.
 
           } else {
-            // Append the rendered row to the child list.
+            // Append the rendered row to the child List.
             if (!didSuspendAlready) {
               var _suspended = findFirstSuspended(renderedTail);
 
@@ -19763,7 +19763,7 @@
                 if (renderState.tail === null && renderState.tailMode === 'hidden' && !renderedTail.alternate && !getIsHydrating() // We don't cut it if we're hydrating.
                 ) {
                     // We need to delete the row we just rendered.
-                    // Reset the effect list to what it was before we rendered this
+                    // Reset the effect List to what it was before we rendered this
                     // child. The nested children have already appended themselves.
                     var lastEffect = workInProgress.lastEffect = renderState.lastEffect; // Remove any effects that were appended after this point.
 
@@ -19801,11 +19801,11 @@
             }
 
             if (renderState.isBackwards) {
-              // The effect list of the backwards tail will have been added
+              // The effect List of the backwards tail will have been added
               // to the end. This breaks the guarantee that life-cycles fire in
               // sibling order but that isn't a strong guarantee promised by React.
               // Especially since these might also just pop in during future commits.
-              // Append to the beginning of the list.
+              // Append to the beginning of the List.
               renderedTail.sibling = workInProgress.child;
               workInProgress.child = renderedTail;
             } else {
@@ -20232,7 +20232,7 @@
 
   function throwException(root, returnFiber, sourceFiber, value, rootRenderLanes) {
     // The source fiber did not complete.
-    sourceFiber.flags |= Incomplete; // Its effect list is no longer valid.
+    sourceFiber.flags |= Incomplete; // Its effect List is no longer valid.
 
     sourceFiber.firstEffect = sourceFiber.lastEffect = null;
 
@@ -21523,10 +21523,10 @@
         // Ideally, this effect would have been scheduled on the Offscreen fiber
         // itself. That's how unhiding works: the Offscreen component schedules an
         // effect on itself. However, in this case, the component didn't complete,
-        // so the fiber was never added to the effect list in the normal path. We
-        // could have appended it to the effect list in the Suspense component's
+        // so the fiber was never added to the effect List in the normal path. We
+        // could have appended it to the effect List in the Suspense component's
         // second pass, but doing it this way is less complicated. This would be
-        // simpler if we got rid of the effect list and traversed the tree, like
+        // simpler if we got rid of the effect List and traversed the tree, like
         // we're planning to do.
         var primaryChildParent = finishedWork.child;
         hideOrUnhideAllChildren(primaryChildParent, true);
@@ -22852,7 +22852,7 @@
         if (returnFiber !== null && // Do not append effects to parents if a sibling failed to complete
         (returnFiber.flags & Incomplete) === NoFlags) {
           // Append all the effects of the subtree and this fiber onto the effect
-          // list of the parent. The completion order of the children affects the
+          // List of the parent. The completion order of the children affects the
           // side-effect order.
           if (returnFiber.firstEffect === null) {
             returnFiber.firstEffect = completedWork.firstEffect;
@@ -22866,14 +22866,14 @@
             returnFiber.lastEffect = completedWork.lastEffect;
           } // If this fiber had side-effects, we append it AFTER the children's
           // side-effects. We can perform certain side-effects earlier if needed,
-          // by doing multiple passes over the effect list. We don't want to
-          // schedule our own side-effect on our own list because if end up
+          // by doing multiple passes over the effect List. We don't want to
+          // schedule our own side-effect on our own List because if end up
           // reusing children we'll schedule this effect onto itself since we're
           // at the end.
 
 
           var flags = completedWork.flags; // Skip both NoWork and PerformedWork tags when creating the effect
-          // list. PerformedWork effect is read by React DevTools but shouldn't be
+          // List. PerformedWork effect is read by React DevTools but shouldn't be
           // committed.
 
           if (flags > PerformedWork) {
@@ -22919,7 +22919,7 @@
         }
 
         if (returnFiber !== null) {
-          // Mark the parent fiber as incomplete and clear its effect list.
+          // Mark the parent fiber as incomplete and clear its effect List.
           returnFiber.firstEffect = returnFiber.lastEffect = null;
           returnFiber.flags |= Incomplete;
         }
@@ -23070,15 +23070,15 @@
       workInProgressRoot = null;
       workInProgress = null;
       workInProgressRootRenderLanes = NoLanes;
-    } // Get the list of effects.
+    } // Get the List of effects.
 
 
     var firstEffect;
 
     if (finishedWork.flags > PerformedWork) {
-      // A fiber's effect list consists only of its children, not itself. So if
-      // the root has an effect, we need to add it to the end of the list. The
-      // resulting list is the set that would belong to the root's parent, if it
+      // A fiber's effect List consists only of its children, not itself. So if
+      // the root has an effect, we need to add it to the end of the List. The
+      // resulting List is the set that would belong to the root's parent, if it
       // had one; that is, all the effects in the tree including the root.
       if (finishedWork.lastEffect !== null) {
         finishedWork.lastEffect.nextEffect = finishedWork;
@@ -23098,7 +23098,7 @@
       var prevInteractions = pushInteractions(root); // Reset this to null before calling lifecycles
 
       ReactCurrentOwner$2.current = null; // The commit phase is broken into several sub-phases. We do a separate pass
-      // of the effect list for each phase: all mutation effects come before all
+      // of the effect List for each phase: all mutation effects come before all
       // layout effects, and so on.
       // The first phase a "before mutation" phase. We use this phase to read the
       // state of the host tree right before we mutate it. This is where
@@ -23611,7 +23611,7 @@
         resetCurrentFiber();
       }
     } // Note: This currently assumes there are no passive effects on the root fiber
-    // because the root is not part of its own effect list.
+    // because the root is not part of its own effect List.
     // This could change in the future.
 
 
@@ -24827,7 +24827,7 @@
       workInProgress.type = current.type; // We already have an alternate.
       // Reset the effect tag.
 
-      workInProgress.flags = NoFlags; // The effect list is no longer valid.
+      workInProgress.flags = NoFlags; // The effect List is no longer valid.
 
       workInProgress.nextEffect = null;
       workInProgress.firstEffect = null;
@@ -24898,7 +24898,7 @@
     // avoid doing another reconciliation.
     // Reset the effect tag but keep any Placement tags, since that's something
     // that child fiber is setting, not the reconciliation.
-    workInProgress.flags &= Placement; // The effect list is no longer valid.
+    workInProgress.flags &= Placement; // The effect List is no longer valid.
 
     workInProgress.nextEffect = null;
     workInProgress.firstEffect = null;
@@ -25223,7 +25223,7 @@
       // This Fiber's initial properties will always be overwritten.
       // We only use a Fiber to ensure the same hidden class so DEV isn't slow.
       target = createFiber(IndeterminateComponent, null, null, NoMode);
-    } // This is intentionally written as a list of all properties.
+    } // This is intentionally written as a List of all properties.
     // We tried to use Object.assign() instead but this is called in
     // the hottest path, and Object.assign() was too slow:
     // https://github.com/facebook/react/issues/12502

@@ -2074,7 +2074,7 @@
     {
       setCurrentlyValidatingElement$1(element);
 
-      error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+      error('Each child in a List should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
 
       setCurrentlyValidatingElement$1(null);
     }
