@@ -43,7 +43,7 @@ export default class App extends Component {
                                     {/*路由组件：注册路由（路径变化后对应的组件）*/}
                                     <Route path="/about" component={About}></Route>
                                     {/* exact={true} 精准匹配，/home/abc 匹配不到 /home 了 */}
-                                    <Route path="/home" component={Home}></Route>
+                                    <Route exact={true} path="/home" component={Home}></Route>
                                     {/* Redirect: 如果上面的都没有匹配到，就匹配到这个路径下面 */}
                                     <Redirect to = "/home"/>
                                 </Switch>
