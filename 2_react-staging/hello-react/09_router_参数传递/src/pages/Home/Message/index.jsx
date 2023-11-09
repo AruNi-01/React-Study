@@ -12,14 +12,6 @@ class Message extends Component {
         ],
     }
 
-    // 编程式路由导航
-    back = () => {
-        this.props.history.goBack();
-    }
-    forward = () => {
-        this.props.history.goForward();
-    }
-
     render() {
         const {messageArr} = this.state
 
@@ -49,9 +41,6 @@ class Message extends Component {
 
                 {/* search/state 参数的方式不用声明接收传递 */}
                 <Route path={`/home/message/detail`} component={Detail}></Route>
-
-                <button onClick={this.back}>后退</button> &nbsp;
-                <button onClick={this.forward}>前进</button>
             </div>
         );
     }

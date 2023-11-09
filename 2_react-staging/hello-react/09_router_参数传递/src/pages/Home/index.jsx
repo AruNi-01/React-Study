@@ -11,10 +11,10 @@ class Home extends Component {
                 <h2>Home 内容</h2>
                 <ul className="nav nav-tabs">
                     <li>
-                        <MyNavLink to="/home/news">News</MyNavLink>
+                        <MyNavLink className="list-group-item" to="/home/news">News</MyNavLink>
                     </li>
                     <li>
-                        <MyNavLink to="/home/message">Message</MyNavLink>
+                        <MyNavLink className="list-group-item" to="/home/message">Message</MyNavLink>
                     </li>
                 </ul>
 
